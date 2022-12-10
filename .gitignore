@@ -1,0 +1,14 @@
+*credentials.json
+www/*credentials.json
+www/css/*credentials.json
+www/img/*credentials.json
+www/js/*credentials.json
+www/resources/*credentials.json
+www/credentials
+*credentials.js
+www/*credentials.js
+www/css/*credentials.js
+www/img/*credentials.js
+www/js/*credentials.js
+www/resources/*credentials.js
+www/credentials
