@@ -1,0 +1,76 @@
+
+####################
+Hey ChatGPT! How would I call the OpenAI API from javascript?
+
+To call the OpenAI API from JavaScript, you can use the fetch function to make an HTTP request to the API endpoint. You will need to provide your API key in the request headers, as well as any other required parameters in the query string or request body, depending on the specific API you are calling. Here is an example of how you might make a request to the OpenAI API from JavaScript:
+
+fetch('https://api.openai.com/v1/models/MODEL_ID/completions', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer YOUR_API_KEY'
+  },
+  body: JSON.stringify({
+    prompt: 'YOUR_PROMPT_TEXT',
+    max_tokens: MAX_TOKEN_COUNT,
+    temperature: TEMPERATURE,
+    top_p: TOP_P,
+    frequency_penalty: FREQUENCY_PENALTY,
+    presence_penalty: PRESENCE_PENALTY,
+  })
+})
+  .then(response => response.json())
+  .then(json => console.log(json))
+  .catch(error => console.error(error));
+
+This example makes a POST request to the /completions endpoint of the OpenAI API, using the fetch function to send the request and then clauses to handle the response. You will need to replace MODEL_ID, YOUR_API_KEY, and the other placeholder values with the appropriate values for your specific use case.
+
+####################
+Brandon Schurter
+What is the MODEL_ID?
+
+The MODEL_ID is the unique identifier for the specific model that you want to use when calling the OpenAI API. This value is provided by OpenAI when you create a model, and you can use it to specify which model you want to use in your API calls.
+
+####################
+Brandon Schurter
+Can you give me some examples?
+
+Sure! Here are a few examples of MODEL_ID values that you might use when calling the OpenAI API:
+
+    text-davinci-002: This is the ID of the default text generation model provided by OpenAI. This model is trained on a large dataset of text and can be used to generate human-like text responses to a given prompt.
+
+    curie-002: This is the ID of a medical knowledge model provided by OpenAI. This model is trained on a large dataset of medical knowledge and can be used to answer medical questions and provide medical advice.
+
+    babbage-001: This is the ID of a math knowledge model provided by OpenAI. This model is trained on a large dataset of mathematical knowledge and can be used to answer math questions and solve math problems.
+
+These are just a few examples of the many different models available through the OpenAI API. The specific MODEL_ID value that you use will depend on your specific use case and the type of model that you want to use.
+Brandon Schurter
+I recall seeing a 'code-davinci-002' model somewhere.  Is that one as well?
+
+I'm sorry, but I am not able to browse the web, so I don't have access to the information about specific models that are available through the OpenAI API. The MODEL_ID values that I provided are examples only, and you will need to consult the OpenAI documentation or contact OpenAI directly to learn more about the available models and their MODEL_ID values.
+
+####################
+Brandon Schurter
+Hm, ok.  In the code you gave earlier, what are some typical values for max_tokens: MAX_TOKEN_COUNT, TEMPERATURE, TOP_P, FREQUENCY_PENALTY, and PRESENCE_PENALTY?  Why are those values used?
+
+The max_tokens parameter specifies the maximum number of tokens (i.e. words or word-like units) that the model should generate in its response. The temperature parameter controls the "creativity" of the model's response. A higher temperature value will result in more diverse and unpredictable responses, while a lower temperature value will result in more predictable and repetitive responses.
+
+The top_p parameter controls the model's "conservatism". A higher top_p value will result in responses that are more likely to be similar to the training data, while a lower top_p value will result in responses that are more likely to be novel and unpredictable.
+
+The frequency_penalty and presence_penalty parameters control the model's use of rare words. A higher penalty value will result in responses that are less likely to use rare words, while a lower penalty value will result in responses that are more likely to use rare words.
+
+These parameters are used to fine-tune the behavior of the model and to control the quality and characteristics of the generated text. The specific values that you use for these parameters will depend on your specific use case and the type of responses that you want to generate. You can experiment with different parameter values to see how they affect the model's output.
+
+####################
+Brandon Schurter
+What are the ranges for those values?
+
+The max_tokens parameter is an integer value that specifies the maximum number of tokens that the model should generate in its response. There is no fixed range for this parameter, but a good starting point is to use a value between 256 and 1024.
+
+The temperature parameter is a floating-point value that controls the "creativity" of the model's response. The range for this parameter is 0.0 to 1.0, with higher values resulting in more diverse and unpredictable responses, and lower values resulting in more predictable and repetitive responses. A good starting point is to use a value between 0.5 and 1.0.
+
+The top_p parameter is a floating-point value that controls the model's "conservatism". The range for this parameter is 0.0 to 1.0, with higher values resulting in responses that are more likely to be similar to the training data, and lower values resulting in responses that are more likely to be novel and unpredictable. A good starting point is to use a value between 0.7 and 1.0.
+
+The frequency_penalty and presence_penalty parameters are floating-point values that control the model's use of rare words. The range for these parameters is 0.0 to 1.0, with higher values resulting in responses that are less likely to use rare words, and lower values resulting in responses that are more likely to use rare words. A good starting point is to use a value between 0.0 and 0.2 for these parameters.
+
+Again, these are just suggestions for starting values, and you can experiment with different values to see how they affect the model's output. The specific values that you use will depend on your specific use case and the type of responses that you want to generate.

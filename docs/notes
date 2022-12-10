@@ -1,0 +1,9 @@
+## Open Source Software Development Assistant
+
+# TODO:
+[] Connect to openai api via javascript
+[] Upload training data for fine-tuning
+[] Submit queries to AI assistant (Aethio) and present responses in well-formatted manner
+  - [] code in responses should be copy-able
+[] Allow configuring of OpenAI credentials
+[] Allow configuring of OpenAI API request parameters, including the base model to use
